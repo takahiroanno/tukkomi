@@ -32,6 +32,7 @@ aud.addEventListener('canplay',function(){
 }, true);
 
 function preload(){
+  window.alert('preload');
   aud.load();
   if(!loadFlg){
   }else{
