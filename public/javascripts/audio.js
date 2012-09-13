@@ -33,6 +33,7 @@ aud.addEventListener('canplay',function(){
 
 function preload(){
   window.alert('preload');
+  window.alert(aud);
   aud.load();
   if(!loadFlg){
   }else{
