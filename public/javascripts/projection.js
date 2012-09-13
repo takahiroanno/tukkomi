@@ -23,6 +23,7 @@ $(function(){
 
   $("#hakushu-button").click(function(){
     hakushu();
+    preload();
   });
   // -- 以上ページの初期化 --//
 });

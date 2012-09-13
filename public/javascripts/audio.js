@@ -1,4 +1,7 @@
 var audio = null;  // Audio オブジェクト
+var aud;
+var loadFlg = false;
+
 
 /* 初期処理 */
 // Audioやoggのサポートチェックは略
@@ -16,15 +19,33 @@ init = function(){
   audio2.autoplay = false;
   // Audioファイルのアドレス指定
   audio2.src = "1.mp3";
+  aud = document.getElementById('mixAud');
 };
+
+
+// プリロード
+aud.addEventListener('canplay',function(){
+  if(!loadFlg){
+    window.alert('準備完了');
+  }
+  loadFlg = true;
+}, true);
+
+function preload(){
+  aud.load();
+  if(!loadFlg){
+  }else{
+    window.alert('スタンバイ済');
+  }
+}
 
 /* 再生(一時停止中は一時停止箇所から再生) */
 play = function(){
-  audio.play();
+  aud.play();
 };
 
 play2 = function(){
-  audio2.play();
+  aud.play();
 };
 
 /* 先頭から再生 */
