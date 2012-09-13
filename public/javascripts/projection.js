@@ -3,7 +3,7 @@ var socket;
 //ページの初期化処理
 $(function(){
   param();
-
+  init();
   //socket = io.connect('http://ec2-175-41-233-244.ap-northeast-1.compute.amazonaws.com');
   socket = io.connect('http://localhost');
 
@@ -13,6 +13,10 @@ $(function(){
   });
 
 
+  socket.on('tukkomi',function(obj){
+    start_tukkomi();
+  });
+  
   $("#tukkomi-button").click(function(){
     tukkomi(1);
   });
@@ -37,6 +41,11 @@ function hakushu(){
 
 function start_hakushu(){
   console.log('hakushu');
+  play();
+}
+function start_tukkomi(){
+  console.log('tukkomi');
+  play2();
 }
 
 

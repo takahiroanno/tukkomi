@@ -18,13 +18,13 @@ exports.hakushu = function(client){
 exports.tukkomi = function(client){
   return function(obj){
     console.log('tukkomi! type = ' + obj.id);
-    client.broadcast.emit('hakushu',obj);
+    client.broadcast.emit('tukkomi',obj);
   }
 };
 
 exports.disconnect = function(client){
   return function(obj){
     console.log(client.id + 'がdisconnectしました。');
-    client.broadcast.emit('hakushu',obj);
+    client.broadcast.emit('disconnect',obj);
   }
 };
