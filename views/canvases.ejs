@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!doctype html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" type="text/css" href="/stylesheets/bootstrap.css" />
+    <link rel="stylesheet" type="text/css" href="/stylesheets/style2.css" />
+    <title><%= title %></title>
+    <script type="text/javascript" src="/javascripts/jquery-1.7.1.min.js"></script>
+    <script type="text/javascript" src="/javascripts/bootstrap.min.js"></script>
+    <script type="text/javascript" src="/javascripts/postit.js"></script>
+    <script type="text/javascript" src="/socket.io/socket.io.js"></script>
+    <script type="text/javascript" src="/javascripts/ui.js"></script>
+    <script type="text/javascript">
+    </script>
+  </head>
+
+  <body id="testwrapper">
+    <div id="wrapper" >
+      <img src="images/APISNOTELOGO.png" style="width:300px" />
+      <% for(var i = 0;i < results.length;i++){  %>
+      <h1><a href="/?id=<%=results[i].id%>"><%=results[i].name%></a></h1>
+      <p><%=results[i].description%></p>
+      <% } %>
+      <form action="newcanvas" method="GET">
+        <input type="text" name="canvasname" placeholder="新しいcanvasの名前を入力"/>
+        <button class="btn btn-primary">新規作成</button>
+      </br>
+        <input type="text" id="input-desc" name="desc" placeholder="新しいcanvasの説明"/> 
+      </form>
+    </div>
+  </body>
+</html>
