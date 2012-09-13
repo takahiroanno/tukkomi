@@ -8,20 +8,8 @@ var express = require('express')
 , fs = require('fs')
 , mysql = require('mysql')
 , socketIO = require('socket.io')
-, model = require('./model')
 , wson = require('./wson');
 
-
-/*
- * dbの設定 + model
- */
-var db = mysql.createClient({
-  user:'root',
-  password:'',
-  database:'apisnote'
-});
-model.setdb(db);
-wson.setmodel(model);
 /*
  * App Configuration
  */
@@ -51,19 +39,19 @@ app.configure('production', function(){
  */
 
 app.get('/', function(req,res){
+  console.log('index access');
   res.render('index.ejs', {
     layout: false
   });
 });
 
-app.get('/canvases',function(req,res){
-  console.log('canvases access');
-  model.get_canvases(res);
+app.get('/admin',function(req,res){
+  console.log('admin access');
+  res.render('admin.ejs', {
+    layout: false
+  });
 });
 
-app.get('/newcanvas',function(req,res){
-  model.add_new_canvas(req.query,res); 
-});
 
 var postit_list = new Array();
 
@@ -73,16 +61,9 @@ var postit_list = new Array();
 
 socket.on('connection',function(client){
   console.log(client.id + 'が接続しました。');
-  client.on('init', wson.init(client));
-  client.on('initwithpass', wson.initwithpass(client));
+  client.on('hakushu', wson.hakushu(client));
+  client.on('tukkomi', wson.tukkomi(client));
   client.on('disconnect',wson.disconnect(client));
-  client.on('newpostit',wson.newpostit(client));
-  client.on('rmpostit',wson.rmpostit(client));
-  client.on('stoppostit',wson.stoppostit(client));
-  client.on('mvpostit',wson.mvpostit(client));
-  client.on('linking',wson.linking(client));
-  client.on('linkinit',wson.linkinit(client));
-  client.on('getcanvasinfo',wson.getcanvasinfo(client));
 });
 
 /*
