@@ -19,6 +19,7 @@ $(function(){
   $("#nandeyanen-button").click(function(){
     tukkomi(1);
     $("#seyana-button").fadeIn();
+    preload();
   });
   
   $("#seyana-button").click(function(){
