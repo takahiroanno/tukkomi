@@ -38,8 +38,6 @@ $(function(){
   $("#hakushu-button").click(function(){
     hakushu();
   });
- */
-  // -- 以上ページの初期化 --//
 });
 
 function tukkomi(id){
