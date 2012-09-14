@@ -1,13 +1,13 @@
 var socket;
 var loadFlg = false;
 var aud = document.getElementById('mixAud');
-
+var aud2 = document.getElementById('mixAud2');
 //ページの初期化処理
 $(function(){
   init();
   //socket = io.connect('http://ec2-175-41-233-244.ap-northeast-1.compute.amazonaws.com');
-  //socket = io.connect('http://localhost');
-  socket = io.connect('http://ec2-54-248-6-226.ap-northeast-1.compute.amazonaws.com');
+  socket = io.connect('http://localhost');
+  //socket = io.connect('http://ec2-54-248-6-226.ap-northeast-1.compute.amazonaws.com');
 
   socket.on('hakushu',function(obj){
     start_hakushu();
@@ -24,7 +24,6 @@ $(function(){
   $("#hakushu-button").click(function(){
     hakushu();
     preload();
-    pl();
   });
   // -- 以上ページの初期化 --//
 });
@@ -54,15 +53,16 @@ function start_tukkomi(){
 
 function preload(){
   aud.load();
+  aud2.load();
   if(!loadFlg){ 
   }else{
-    window.alert('standby already');
+    //window.alert('standby already');
   }
 }
 
 aud.addEventListener('canplay',function(){
   if(!loadFlg){
-    window.alert('standby');
+    //window.alert('standby');
   }
   loadFlg = true;
   }
@@ -70,4 +70,7 @@ aud.addEventListener('canplay',function(){
 
 function pl(){
   aud.play();
+}
+function pl2(){
+  aud2.play();
 }
