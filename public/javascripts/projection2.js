@@ -27,7 +27,7 @@ $(function(){
   $("#nandeyanen-button").click(function(){
     tukkomi(1);
     $("#seyana-button").fadeIn();
-    preload();
+    //preload();
   });
   
   $("#seyana-button").click(function(){
@@ -71,7 +71,7 @@ function start_tukkomi(obj){
   //pl();
   aud[obj.id].play();
 }
-
+/*
 function preload(){
   aud.load();
   if(!loadFlg){ 
@@ -90,4 +90,4 @@ aud.addEventListener('canplay',function(){
 
 function pl(){
   aud.play();
-}
+}*/
