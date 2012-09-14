@@ -1,0 +1,62 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0.1//EN">
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>BASHOOOO!</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="">
+<meta name="author" content="">
+
+
+
+<!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]-->
+
+<!-- Le fav and touch icons -->
+<link rel="shortcut icon" href="../../docs/assets/ico/favicon.ico">
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="ico/apple-touch-icon-144-precomposed.png">
+<link rel="apple-touch-icon-precomposed" sizes="114x114" href="ico/apple-touch-icon-114-precomposed.png">
+<link rel="apple-touch-icon-precomposed" sizes="72x72" href="ico/apple-touch-icon-72-precomposed.png">
+<link rel="apple-touch-icon-precomposed" href="ico/apple-touch-icon-57-precomposed.png">
+<link href="style.css" rel="stylesheet">
+<!--[if lt IE 9]>
+<script src="css/styleie9.css"></script>
+<![endif]-->
+</head>
+
+<body>
+<div id="wrapper">
+  <button id="yesbtn" onclick="preload();">yes</button>
+  <button id="ano" onclick="pl();">yes</button>
+  <audio id="mixAud" src="./1.mp3"></audio>
+</div>
+<script src="javascripts/jquery-1.6.2.min.js"></script>
+<script>
+
+var loadFlg = false;
+var aud = document.getElementById('mixAud');
+
+function preload(){
+  aud.load();
+  if(!loadFlg){ 
+  }else{
+    window.alert('standby already');
+  }
+}
+
+aud.addEventListener('canplay',function(){
+  if(!loadFlg){
+    window.alert('standby');
+  }
+  loadFlg = true;
+  }
+,true);
+
+function pl(){
+  aud.play();
+}
+
+</script>
+</body>
+</html>

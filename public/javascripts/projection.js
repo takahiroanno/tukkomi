@@ -12,7 +12,6 @@ $(function(){
     start_hakushu();
   });
 
-
   socket.on('tukkomi',function(obj){
     start_tukkomi();
   });
