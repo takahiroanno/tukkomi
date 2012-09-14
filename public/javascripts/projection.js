@@ -1,7 +1,6 @@
 var socket;
 var loadFlg = false;
 var aud = document.getElementById('mixAud');
-var aud2 = document.getElementById('mixAud2');
 //ページの初期化処理
 $(function(){
   //init();
@@ -14,18 +13,32 @@ $(function(){
   });
 
   socket.on('tukkomi',function(obj){
-    start_tukkomi();
+    start_tukkomi(obj);
   });
   
-  $("#tukkomi-button").click(function(){
+  $("#nandeyanen-button").click(function(){
     tukkomi(1);
-    preload();
+    $("#seyana-button").fadeIn();
+  });
+  
+  $("#seyana-button").click(function(){
+    tukkomi(2);
+    $("#eeyan-button").fadeIn();
+  });
+  
+  $("#eeyan-button").click(function(){
+    tukkomi(3);
+    $("#shoot-button").fadeIn();
+  });
+  
+  $("#shoot-button").click(function(){
+    tukkomi(4);
   });
 
   $("#hakushu-button").click(function(){
     hakushu();
-    preload();
   });
+ */
   // -- 以上ページの初期化 --//
 });
 
@@ -43,18 +56,17 @@ function hakushu(){
 
 function start_hakushu(){
   console.log('hakushu');
-  pl2();
+  pl();
 }
 
-function start_tukkomi(){
-  console.log('tukkomi');
-  pl();
+function start_tukkomi(obj){
+  console.log('tukkomi' + obj.id);
+  //pl();
 }
 
 
 function preload(){
   aud.load();
-  aud2.load();
   if(!loadFlg){ 
   }else{
     //window.alert('standby already');
@@ -71,7 +83,4 @@ aud.addEventListener('canplay',function(){
 
 function pl(){
   aud.play();
-}
-function pl2(){
-  aud2.play();
 }
