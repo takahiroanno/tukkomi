@@ -19,6 +19,7 @@ $(function(){
   
   $("#tukkomi-button").click(function(){
     tukkomi(1);
+    preload();
   });
 
   $("#hakushu-button").click(function(){
@@ -42,7 +43,7 @@ function hakushu(){
 
 function start_hakushu(){
   console.log('hakushu');
-  pl();
+  pl2();
 }
 
 function start_tukkomi(){
