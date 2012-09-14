@@ -1,8 +1,9 @@
 var socket;
+var loadFlg = false;
+var aud = document.getElementById('mixAud');
 
 //ページの初期化処理
 $(function(){
-  param();
   init();
   //socket = io.connect('http://ec2-175-41-233-244.ap-northeast-1.compute.amazonaws.com');
   //socket = io.connect('http://localhost');
@@ -23,6 +24,7 @@ $(function(){
   $("#hakushu-button").click(function(){
     hakushu();
     preload();
+    pl();
   });
   // -- 以上ページの初期化 --//
 });
@@ -41,30 +43,31 @@ function hakushu(){
 
 function start_hakushu(){
   console.log('hakushu');
-  play();
+  pl();
 }
+
 function start_tukkomi(){
   console.log('tukkomi');
-  play2();
+  pl();
 }
 
 
-function param(){
-  var pram=location.search;
-  /* 引数がない時はcanvasesへ */
-  if (!pram) return false;
-  /* 先頭の?をカット */
-  pram=pram.substring(1);
-  /* 「&」で引数を分割して配列に */
-  var pair=pram.split("&");
-  var i=temp="";
-  var key=new Array();
-  for (i=0; i < pair.length; i++) {
-    /* 配列の値を「=」で分割 */
-    temp=pair[i].split("=");
-    keyName=temp[0];
-    keyValue=temp[1];
-    /* キーと値の連想配列を生成 */
-    key[keyName]=keyValue
+function preload(){
+  aud.load();
+  if(!loadFlg){ 
+  }else{
+    window.alert('standby already');
   }
+}
+
+aud.addEventListener('canplay',function(){
+  if(!loadFlg){
+    window.alert('standby');
+  }
+  loadFlg = true;
+  }
+,true);
+
+function pl(){
+  aud.play();
 }
