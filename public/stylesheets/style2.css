@@ -10,11 +10,19 @@ button {
   height:80px;
   margin-top:5px;
   margin-bottom:5px;
-  visibility:hidden;
 }
 
 #nandeyanen-button{
-  visibility:visible;
+  display:block;
+}
+#seyana-button{
+  display:none;
+}
+#eeyan-button{
+  display:none;
+}
+#shoot-button{
+  display:none;
 }
 #hakushu-button{
   visibility:visible;
