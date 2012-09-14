@@ -6,8 +6,8 @@ var aud2 = document.getElementById('mixAud2');
 $(function(){
   init();
   //socket = io.connect('http://ec2-175-41-233-244.ap-northeast-1.compute.amazonaws.com');
-  socket = io.connect('http://localhost');
-  //socket = io.connect('http://ec2-54-248-6-226.ap-northeast-1.compute.amazonaws.com');
+  //socket = io.connect('http://localhost');
+  socket = io.connect('http://ec2-54-248-6-226.ap-northeast-1.compute.amazonaws.com');
 
   socket.on('hakushu',function(obj){
     start_hakushu();
